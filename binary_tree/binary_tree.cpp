@@ -57,3 +57,58 @@ void	node::print_level_order() const
 		cout << n->data << "  ";
 	}
 }
+
+void	node::insert(node *new_node)
+{
+	queue< const node *> q;
+
+	q.push(this);
+	while (!q.empty())
+	{
+		node *n = (node *)q.front();
+		q.pop();
+		if (!n->left || !n->right)
+		{
+			if (!n->left)
+				n->left = new_node;
+			else
+				n->right = new_node;
+			return ;
+		}
+		q.push(n->left);
+		q.push(n->right);
+	}
+}
+
+void	node::insert(int data)
+{
+	queue< const node *> q;
+
+	q.push(this);
+	while (!q.empty())
+	{
+		node *n = (node *)q.front();
+		q.pop();
+		if (!n->left || !n->right)
+		{
+			if (!n->left)
+				n->left = new node(data);
+			else
+				n->right = new node(data);
+			return ;
+		}
+		q.push(n->left);
+		q.push(n->right);
+	}
+}
+
+
+node*	node::delete_most_right_node()
+{
+	
+}
+
+void	node::node_delete(int data)
+{
+	
+}
