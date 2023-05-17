@@ -60,12 +60,12 @@ void	node::print_level_order() const
 
 void	node::insert(node *new_node)
 {
-	queue< const node *> q;
+	queue<node *> q;
 
 	q.push(this);
 	while (!q.empty())
 	{
-		node *n = (node *)q.front();
+		node *n = q.front();
 		q.pop();
 		if (!n->left || !n->right)
 		{
@@ -82,12 +82,12 @@ void	node::insert(node *new_node)
 
 void	node::insert(int data)
 {
-	queue< const node *> q;
+	queue< node *> q;
 
 	q.push(this);
 	while (!q.empty())
 	{
-		node *n = (node *)q.front();
+		node *n = q.front();
 		q.pop();
 		if (!n->left || !n->right)
 		{
@@ -103,12 +103,5 @@ void	node::insert(int data)
 }
 
 
-node*	node::delete_most_right_node()
-{
-	
-}
 
-void	node::node_delete(int data)
-{
-	
-}
+//ex03
