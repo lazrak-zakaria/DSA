@@ -3,10 +3,13 @@
 
 #include <exception>
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <queue>
-#include <algorithm>
+#include <stack>
+#include <deque>
+
 
 using namespace std;
 
@@ -22,12 +25,11 @@ using namespace std;
 class node
 {
 	private :
-		node();
-
-	public :
 		int			data;
 		node	*left;
 		node	*right;
+		node();
+	public :
 		node(int data);
 
 		void	print_inorder() const;
@@ -41,11 +43,15 @@ class node
 		void	insert(node *new_node); // insert by node
 		void	insert(int new_node);	// insert by data
 
-		node*	delete_most_right_node();
-		void	node_delete(int data);
+		void	node_delete(int data);  // TODO
+
+		
+//		ex04 level order in spiral form
+//		{
+		void	print_spiral1(); // using recursion TODO
+		void	print_spiral2(); // using stack
+		void	print_spiral3();
+//		}
 };
-
-
-
 
 #endif

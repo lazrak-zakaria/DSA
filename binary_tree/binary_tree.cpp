@@ -104,4 +104,89 @@ void	node::insert(int data)
 
 
 
-//ex03
+//ex04
+
+void	node::print_spiral2()
+{
+	stack < node* > s1;
+	stack < node* > s2;
+	node	*temp;
+	s1.push(this);
+	while (!s1.empty() || !s2.empty()) // if one of them is not empty
+	{
+		while (!s1.empty())
+		{
+			temp = s1.top();
+			s1.pop();
+			cout << temp->data << " ";
+			if (temp->right)
+				s2.push(temp->right);
+			if (temp->left)
+				s2.push(temp->left);
+		}
+		while (!s2.empty())
+		{
+			temp = s2.top();
+			s2.pop();
+			cout << temp->data << " ";
+			if (temp->left)
+				s1.push(temp->left);
+			if (temp->right)
+				s1.push(temp->right);
+		}
+	}
+	cout << "\n";
+}
+
+void	node::print_spiral3()
+{
+	deque <node*> dq;
+	node*	temp;
+	size_t	dq_size;
+	dq.push_front(this);
+
+	bool k = true;
+	while (!dq.empty())
+	{
+		dq_size = dq.size();
+		if (k)
+		{
+			while (dq_size--)
+			{
+				temp = dq.back();
+				dq.pop_back();
+				if (temp->right)
+					dq.push_front(temp->right);
+				if (temp->left)
+					dq.push_front(temp->left);
+				cout << temp->data << " ";
+			}
+			k = false;
+		}
+		else
+		{
+			while (dq_size--)
+			{
+				temp = dq.front();
+				dq.pop_front();
+				if (temp->left)
+					dq.push_back(temp->left);
+				if (temp->right)
+					dq.push_back(temp->right);
+				cout << temp->data << " ";
+			}
+			k = true;
+		}
+	}
+}
+
+/*
+
+			  0 
+		1	 		2
+	3		4	5		6
+7
+
+
+*/
+//  1 2
