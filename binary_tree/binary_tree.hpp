@@ -52,6 +52,14 @@ class node
 		void	print_spiral2(); // using stack
 		void	print_spiral3();
 //		}
+
+
+		//ex05 reverse level order
+		void	print_Rlevel_order(); // using recursion
+		void	print_Rlevel(int , int); // private
+
+		//ex06
+		void	print_boundary();
 };
 
 #endif

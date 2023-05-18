@@ -180,13 +180,29 @@ void	node::print_spiral3()
 	}
 }
 
-/*
+void	node::print_Rlevel(int	l, int i)
+{
+	if (i == l)
+	{
+		cout << this->data << " ";
+		return ;
+	}
+	if (this->left)
+		this->left->print_Rlevel(l, i + 1);
+	if (this->right)
+		this->right->print_Rlevel(l, i + 1);
+	
+}
 
-			  0 
-		1	 		2
-	3		4	5		6
-7
+void	node::print_Rlevel_order()
+{
+	size_t	h = this->tree_height();
+
+	for (int i = h; i ; i--)
+	{
+		this->print_Rlevel(i, 1);
+	}
+}
 
 
-*/
-//  1 2
+
