@@ -205,4 +205,53 @@ void	node::print_Rlevel_order()
 }
 
 
+void	node::node_delete(int data)
+{
+	queue<node*> q;
+	node*	to_delete = nullptr;
+	node* tmp;
+	node *del = nullptr;
+	bool r = 0;
+	bool l = 0;
+	q.push(this);
+	while (!q.empty())
+	{
+		tmp = q.front();
+		q.pop();
+		if (data == tmp->data && to_delete == nullptr)
+			to_delete = tmp;
+		if (tmp->left)
+			q.push(tmp->left);
+		if (tmp->right)
+			q.push(tmp->right);
+		if (tmp->left)
+		{
+			if (!tmp->left->right && !tmp->left->left)
+				del = tmp;
+			r = 0;
+			l = 1;
+		}
+		if (tmp->right)
+		{
+			if (!tmp->right->right && !tmp->right->left)
+				del = tmp;
+			r = 1;
+			l = 0;
+		}
+	}
 
+	if (r)
+	{
+		to_delete->data = del->right->data;
+		delete del->right;
+		del->right = nullptr;
+	}
+	if (l)
+	{
+		// if (to_delete->data)
+		// 	cout << "to_delete->data\n";
+		to_delete->data = del->left->data;
+		delete del->left;
+		del->left = nullptr;
+	}
+}

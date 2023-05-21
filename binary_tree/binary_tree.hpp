@@ -25,11 +25,11 @@ using namespace std;
 class node
 {
 	private :
+		node();
+	public :
 		int			data;
 		node	*left;
 		node	*right;
-		node();
-	public :
 		node(int data);
 
 		void	print_inorder() const;
@@ -60,6 +60,9 @@ class node
 
 		//ex06
 		void	print_boundary();
+		void	boundary_left(int k);
+		void	boundary_right(int k);
+
 };
 
 #endif

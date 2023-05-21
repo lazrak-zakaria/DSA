@@ -45,7 +45,23 @@ bool nodeCousin(node *root, int n1, int n2)
 	return false;
 }
 
+/*
+               A
 
+             /    \ 
+
+           B        C
+
+         /   \       \    
+
+        D     E       B     
+
+                     /  \    
+
+                    D    E
+
+
+*/
 int main()
 {
 
